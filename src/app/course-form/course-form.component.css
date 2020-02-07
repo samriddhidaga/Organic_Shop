@@ -1,0 +1,14 @@
+.container{
+    min-width: 100%;
+    max-width: 300px;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    display: flex;
+}
+.username,.email,.profession,.category{
+    width:600px !important;
+  }
+.header{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}

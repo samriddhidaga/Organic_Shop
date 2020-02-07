@@ -18,6 +18,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { RouterModule } from '@angular/router';
 import { AuthService } from './auth.service';
 import { AuthGuradService } from './auth-guard.service';
+import { CategoryService } from './category.service';
 //import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
@@ -50,7 +51,8 @@ import { AuthGuradService } from './auth-guard.service';
   ],
   providers: [
     AuthService,
-    AuthGuradService
+    AuthGuradService,
+    CategoryService
   ],
   bootstrap: [
     AppComponent

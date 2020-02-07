@@ -1,1 +1,30 @@
-<p>course-form works!</p>
+<div class="container">
+    <mat-card class="box" flex="100">
+       <form #f="ngForm">
+           <h2 class="header">Course Registration Form</h2>
+           <mat-form-field class="username">
+               <mat-label>Username</mat-label>
+               <input matInput placeholder="Enter your email address" name="username" #username="ngModel" ngModel>
+           </mat-form-field><br><br>
+           <mat-form-field class="email">
+            <mat-label>Email Address</mat-label>
+            <input matInput placeholder="Enter your email address" name="email" #email="ngModel" ngModel>
+        </mat-form-field><br><br>
+        <mat-form-field class="profession">
+            <mat-label>Profession</mat-label>
+            <input matInput placeholder="Enter your profession" name="profession" #profession="ngModel" ngModel>
+            <mat-hint>Ex. Student/Working</mat-hint>
+        </mat-form-field><br><br>
+        <mat-form-field class="category">
+           <mat-label>Category</mat-label>
+            <mat-select>
+                <mat-option matInput *ngFor="let c of category$ | async ">
+                    {{ c.name }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field><br><br>
+        <button mat-stroked-button color="accent" class="btn-block">Save</button>
+        <button mat-stroked-button color="danger" class="btn-block">Delete</button>
+       </form>
+    </mat-card>
+</div>
