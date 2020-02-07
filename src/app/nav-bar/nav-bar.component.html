@@ -1,0 +1,18 @@
+    <mat-toolbar color="primary" class="app-header fixed-top">
+    <span class="nav-home">
+      <a mat-button-raised>Home</a>
+    </span>
+    <span class="nav-dashboard">
+      <a mat-button [matMenuTriggerFor]="menu" class="dashboard">Dashboard</a>
+      <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="/course-form">Course Form</button>
+      <button mat-menu-item routerLink="/course-list">Course List</button>
+      <button mat-menu-item routerLink="/admin/course">Manage Courses</button>
+      <button mat-menu-item (click)="logout()">Logout</button>
+  </mat-menu>
+    </span>
+    <span class="nav-tool-items">
+      <a mat-button routerLink="/login" routerLinkActive="active" class="login">Login</a>
+    </span>
+  </mat-toolbar>
+  

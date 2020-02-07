@@ -1,0 +1,36 @@
+.box {
+    position: relative;
+    top: 0;
+    opacity: 1;
+    float: left;
+    padding: 60px 50px 40px 50px;
+    width: 100%;
+    background: #fff;
+    border-radius: 10px;
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    z-index: 5;
+    max-width: 330px;
+  }
+  .login-wrapper {
+    min-width: 100%;
+    max-width: 300px;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    display: flex;
+  }
+.mat-card-title{
+    text-align: center;
+    font-weight: 70px;
+    padding-left: 60px;
+  }
+ .mat-stroked-button{
+     border: 1px solid currentColor;
+     line-height: 50px;
+     background-color: #FFF7FA;
+     width: 100%;
+     align-content: center;
+ }
+ 
