@@ -1,6 +1,6 @@
 <div class="container">
     <mat-card class="box" flex="100">
-       <form #f="ngForm">
+       <form #f="ngForm" (ngSubmit)="save(f.value)">
            <h2 class="header">Course Registration Form</h2>
            <mat-form-field class="username">
                <mat-label>Username</mat-label>
@@ -22,14 +22,14 @@
             <mat-error *ngIf="profession.invalid && profession.touched">Profession is required</mat-error>
         </mat-form-field><br><br>
         <mat-form-field class="category">
-           <mat-label>Category</mat-label>
-            <mat-select >
-                <mat-option matInput *ngFor="let c of category$ | async ">
-                    {{ c.name }}
-                </mat-option>
+            <mat-label>Category</mat-label>
+            <mat-select name="category" #category="ngModel" ngModel required>
+              <mat-option *ngFor="let c of courses" [value]="c.name">
+                {{c.value}}
+              </mat-option>
             </mat-select>
-            <!-- <mat-error *ngIf="category.invalid && category.touched">Please select a category</mat-error> -->
-        </mat-form-field><br><br>
+            <mat-error *ngIf="category.invalid && category.touched">Please select a category</mat-error>
+          </mat-form-field><br><br>
         <button mat-stroked-button color="accent" class="btn-block">Save</button>
         <button mat-stroked-button color="danger" class="btn-block">Delete</button>
        </form>

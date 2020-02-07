@@ -19,6 +19,7 @@ import { RouterModule } from '@angular/router';
 import { AuthService } from './auth.service';
 import { AuthGuradService } from './auth-guard.service';
 import { CategoryService } from './category.service';
+import { CourseRegService } from './course-reg.service';
 //import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
@@ -52,7 +53,8 @@ import { CategoryService } from './category.service';
   providers: [
     AuthService,
     AuthGuradService,
-    CategoryService
+    CategoryService,
+    CourseRegService
   ],
   bootstrap: [
     AppComponent
