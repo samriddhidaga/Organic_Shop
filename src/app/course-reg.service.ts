@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestoreCollection, AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { CourseReg } from './models/course-reg';
 import { Observable } from 'rxjs';
 
@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 export class CourseRegService {
   courseReg : AngularFirestoreCollection<CourseReg>
   course:Observable<CourseReg[]>
+  courseDoc:AngularFirestoreDocument<CourseReg>
 
   constructor(private afs : AngularFirestore) { 
     this.courseReg=this.afs.collection('registration');
@@ -22,4 +23,12 @@ export class CourseRegService {
       console.log("Error",error);
     })
   }
+  deleteUser(user){
+    this.courseDoc=this.afs.doc(`registration/${user.id}`);
+    this.courseDoc.delete().then(()=>{
+      console.log("Deleted Successfully");
+    }).catch((error)=>{
+      console.log("Error",error);
+    })
+  }  
 }

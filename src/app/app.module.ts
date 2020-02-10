@@ -20,6 +20,7 @@ import { AuthService } from './auth.service';
 import { AuthGuradService } from './auth-guard.service';
 import { CategoryService } from './category.service';
 import { CourseRegService } from './course-reg.service';
+import { ManageCourseComponent } from './manage-course/manage-course.component';
 //import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
@@ -29,7 +30,8 @@ import { CourseRegService } from './course-reg.service';
     CourseFormComponent,
     CourseListComponent,
     AdminCourseComponent,
-    NavBarComponent 
+    NavBarComponent,
+    ManageCourseComponent 
   ],
   imports: [
     BrowserModule,
@@ -46,7 +48,8 @@ import { CourseRegService } from './course-reg.service';
       { path : 'login', component : LoginComponent},
       { path : 'course-form', component : CourseFormComponent,canActivate:[AuthGuradService]},
       { path : 'course-list', component : CourseListComponent,canActivate:[AuthGuradService]},
-      { path : 'admin/course', component : AdminCourseComponent,canActivate:[AuthGuradService]}
+      { path : 'admin/course', component : AdminCourseComponent,canActivate:[AuthGuradService]},
+      { path : 'admin/table', component : ManageCourseComponent,canActivate:[AuthGuradService]}
     ])
     //FlexLayoutModule
   ],

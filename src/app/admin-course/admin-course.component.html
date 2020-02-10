@@ -1,1 +1,57 @@
-<p>admin-course works!</p>
+<div class="container col-md-6">
+    <mat-card class="box" flex="100">
+       <form #f="ngForm" (ngSubmit)="save(f.value)">
+           <h2 class="header">Add Courses</h2>
+           <mat-form-field class="username">
+               <mat-label>Course Name</mat-label>
+               <input matInput placeholder="Enter your course name" name="coursename" #coursename="ngModel" 
+               ngModel required>
+               <mat-error *ngIf="coursename.invalid && coursename.touched">Course Name is required</mat-error>
+           </mat-form-field><br>
+           <mat-form-field class="price">
+            <mat-label>Price</mat-label>
+            <input matInput placeholder="Enter the price" name="price" #price="ngModel" 
+            ngModel required>
+            <mat-error *ngIf="price.invalid && price.touched">Price is required</mat-error>
+        </mat-form-field><br>
+        <mat-form-field class="duration">
+            <mat-label>Duration</mat-label>
+            <input matInput placeholder="Enter the duration" name="duration" #duration="ngModel" 
+            ngModel required>
+            <mat-hint>Ex. 30.5 hours</mat-hint>
+            <mat-error *ngIf="duration.invalid && duration.touched">Duration is required</mat-error>
+        </mat-form-field><br>
+        <mat-form-field class="category">
+            <mat-label>Category</mat-label>
+            <mat-select name="category" #category="ngModel" ngModel required>
+              <mat-option *ngFor="let c of courses" [value]="c.name">
+                {{c.value}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="category.invalid && category.touched">Please select a category</mat-error>
+          </mat-form-field><br>
+          <mat-form-field class="imageUrl">
+            <mat-label>Image Url</mat-label>
+            <input matInput placeholder="Enter the imageUrl" name="imageUrl" #imageUrl="ngModel" 
+            ngModel required>
+            <mat-error *ngIf="imageUrl.invalid && imageUrl.touched">Image Url is required</mat-error>
+        </mat-form-field><br>
+        <button [disabled]="f.invalid" mat-stroked-button color="accent" class="btn-block">Add Course</button>
+        <!-- <button (click)="deleteUser()" mat-stroked-button color="danger" class="btn-block">Delete</button> -->
+       </form>
+    </mat-card>
+    <div *ngIf="f.touched"
+    class="card col-md-6">
+        <mat-card class="example-card" style="width: 20rem;"> 
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title class="title">{{ coursename.value }}</mat-card-title>
+              <mat-card-subtitle>{{ category.value }}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image [src]="imageUrl.value">
+            <mat-card-content> {{ price.value | currency:'INR'}} 
+            </mat-card-content>
+            <mat-card-content *ngIf="duration.touched"><p>Duration of course {{ duration.value }} hours</p></mat-card-content>
+          </mat-card>
+    </div>
+</div>
