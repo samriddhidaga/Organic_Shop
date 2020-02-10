@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseCategory } from '../models/course';
+import { AddCourseService } from '../add-course.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-course',
@@ -15,11 +17,14 @@ export class AdminCourseComponent implements OnInit {
     {name:'finance',value:'Finance & Accounting'}
   ];
   
-  constructor() {
+  constructor(private courseService : AddCourseService,private router : Router) {
     
    }
 
   ngOnInit() {
   }
-
+  save(course){
+    this.courseService.add(course);
+    this.router.navigate(['/course-list']);
+  }
 }

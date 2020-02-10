@@ -22,6 +22,7 @@ import { CategoryService } from './category.service';
 import { CourseRegService } from './course-reg.service';
 import { ManageCourseComponent } from './manage-course/manage-course.component';
 import { CustomFormsModule } from 'ng2-validation';
+import { AddCourseService } from './add-course.service';
 //import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
@@ -59,7 +60,8 @@ import { CustomFormsModule } from 'ng2-validation';
     AuthService,
     AuthGuradService,
     CategoryService,
-    CourseRegService
+    CourseRegService,
+    AddCourseService
   ],
   bootstrap: [
     AppComponent
