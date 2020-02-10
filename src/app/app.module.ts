@@ -21,6 +21,7 @@ import { AuthGuradService } from './auth-guard.service';
 import { CategoryService } from './category.service';
 import { CourseRegService } from './course-reg.service';
 import { ManageCourseComponent } from './manage-course/manage-course.component';
+import { CustomFormsModule } from 'ng2-validation';
 //import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
@@ -43,6 +44,7 @@ import { ManageCourseComponent } from './manage-course/manage-course.component';
     AngularMaterialModule,
     FormsModule,
     ReactiveFormsModule,
+    CustomFormsModule,
     RouterModule.forRoot([
       { path : '', component : LoginComponent},
       { path : 'login', component : LoginComponent},
