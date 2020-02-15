@@ -1,1 +1,33 @@
-<p>manage-course works!</p>
+<div class="container col-md-10">
+    <mat-card class="box" flex="80">
+       <!-- <table>
+           <tr>
+               <th>Courses</th>
+               <th>Price</th>
+               <th>Duration</th>
+               <th>Category</th>
+           </tr>
+           <tr *ngFor="let c of courses">
+               <td>{{c.coursename}}</td>
+               <td>{{c.price}}</td>
+               <td>{{c.duration}}</td>
+               <td>{{c.category}}</td>
+           </tr>
+       </table> -->
+         <!-- <table [dataSource]="tableResource" multiTemplateDataRows mat-table lass="mat=elevation-z8">
+              
+                <ng-container matColumnDef="courseName">
+                    <th mat-header-cell *matHeaderCellDef> Course Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.courseName}} </td>
+                  </ng-container> -->
+
+            <!-- <ng-container matColumnDef="courseName">
+                <th mat-header-cell *matHeaderCellDef> Course Name </th>
+              </ng-container>
+              <mat-row *matRowDef="let c of courses">
+                <td mat-cell> {{c.courseName}} </td>
+              </mat-row> -->
+             <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>   
+    </mat-card>
+</div>

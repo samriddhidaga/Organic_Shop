@@ -23,6 +23,8 @@ import { CourseRegService } from './course-reg.service';
 import { ManageCourseComponent } from './manage-course/manage-course.component';
 import { CustomFormsModule } from 'ng2-validation';
 import { AddCourseService } from './add-course.service';
+import { DataTableModule } from 'ng-angular8-datatable'
+import { CdkColumnDef } from '@angular/cdk/table';
 //import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
@@ -46,6 +48,7 @@ import { AddCourseService } from './add-course.service';
     FormsModule,
     ReactiveFormsModule,
     CustomFormsModule,
+    DataTableModule,
     RouterModule.forRoot([
       { path : '', component : LoginComponent},
       { path : 'login', component : LoginComponent},
@@ -54,14 +57,15 @@ import { AddCourseService } from './add-course.service';
       { path : 'admin/course', component : AdminCourseComponent,canActivate:[AuthGuradService]},
       { path : 'admin/table', component : ManageCourseComponent,canActivate:[AuthGuradService]}
     ])
-    //FlexLayoutModule
+   // FlexLayoutModule
   ],
   providers: [
     AuthService,
     AuthGuradService,
     CategoryService,
     CourseRegService,
-    AddCourseService
+    AddCourseService,
+    CdkColumnDef
   ],
   bootstrap: [
     AppComponent

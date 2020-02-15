@@ -1,6 +1,6 @@
 <div class="container col-md-6">
     <mat-card class="box" flex="100">
-       <form #f="ngForm" (ngSubmit)="save(f.value)">
+       <form #f="ngForm">
            <h2 class="header">Add Courses</h2>
            <mat-form-field class="username">
                <mat-label>Course Name</mat-label>
@@ -45,8 +45,9 @@
                 <div *ngIf="imageUrl.errors.url">Enter a valid url</div>
             </mat-error>
         </mat-form-field><br>
-        <button [disabled]="f.invalid" mat-stroked-button color="accent" class="btn-block">Add Course</button>
-        <!-- <button (click)="deleteUser()" mat-stroked-button color="danger" class="btn-block">Delete</button> -->
+        <button type="submit" (click)="save(f.value)"
+        [disabled]="f.invalid" mat-stroked-button color="accent" class="btn-block">Add Course</button>
+        <button mat-stroked-button color="danger" class="btn-block" type="reset">Reset</button> 
        </form>
     </mat-card>
     <div *ngIf="f.touched"

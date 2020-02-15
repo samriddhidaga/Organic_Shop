@@ -6,6 +6,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
+import {MatTableModule} from '@angular/material/table';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [],
@@ -16,7 +20,11 @@ import { MatInputModule } from '@angular/material/input';
     MatSelectModule,
     MatMenuModule,
     MatCardModule,
-    MatInputModule
+    MatInputModule,
+    MatTableModule,
+    MatSidenavModule,
+    MatDividerModule,
+    MatGridListModule
   ]
 })
 export class AngularMaterialModule { }

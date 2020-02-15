@@ -1,1 +1,34 @@
-<p>course-list works!</p>
+
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav class="sidenav" mode="side" opened>
+        <mat-list class="mat-list" role="list"><br><br><br><br>
+            <mat-list-item  class="list" role="listitem"><a mat-button-raised>All Categories</a></mat-list-item><br><br>      
+            <mat-list-item  class="list" role="listitem">Design</mat-list-item><br><br>         
+            <mat-list-item  class="list" role="listitem">Development</mat-list-item><br><br>               
+            <mat-list-item  class="list" role="listitem">Finance</mat-list-item><br><br>               
+            <mat-list-item  class="list" role="listitem">Marketing</mat-list-item><br><br>              
+            <mat-list-item  class="list" role="listitem">Music</mat-list-item><br><br>              
+            <mat-list-item  class="list" role="listitem">Photography</mat-list-item><br><br>
+        </mat-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-grid-list cols="3" rowHeight="3:4">
+            <mat-grid-tile *ngFor="let c of courses">
+                <div class="col">
+                    <mat-card class="example-card" style="width: 12rem;height: fit-content;"> 
+                        <mat-card-header>                         
+                          <mat-card-title class="title">{{ c.coursename }}</mat-card-title>
+                          <mat-card-subtitle>{{ c.category }}</mat-card-subtitle>
+                        </mat-card-header>
+                        <img mat-card-image [src]="c.imageUrl">
+                        <mat-card-content > {{ c.price | currency:'INR'}} 
+                        </mat-card-content>
+                        <mat-card-content >
+                            <p>Duration of course {{ c.duration }} hours</p></mat-card-content>
+                      </mat-card>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </mat-sidenav-content>
+    </mat-sidenav-container>
+       
