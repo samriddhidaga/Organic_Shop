@@ -18,7 +18,7 @@
                 <th>Category</th>
                 <th></th>
             </tr>
-            <tr *ngFor="let c of courses">
+            <tr *ngFor="let c of filteredCourses">
                 <td>{{c.coursename}}</td>
                 <td>{{c.price}}</td>
                 <td>{{c.duration}}</td>
@@ -31,8 +31,8 @@
         </div>
         <mat-form-field class="search">
           <mat-label>Search for courses</mat-label>
-          <input matInput placeholder="Please search here" name="search" #search="ngModel"
-          ngModel>
+          <input matInput placeholder="Please search here" name="search" #search
+          (keyup)="filter(search.value)">
      </mat-form-field>
     </mat-card>
 </div>

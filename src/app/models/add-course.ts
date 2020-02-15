@@ -1,6 +1,6 @@
 export interface AddCourse {
     id : string;
-    courseName : string;
+    coursename : string;
     price : number;
     duration : number;
     category : string;

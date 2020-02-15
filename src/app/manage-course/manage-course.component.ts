@@ -1,25 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AddCourseService } from '../add-course.service';
 import { AddCourse } from '../models/add-course';
 import { Subscription } from 'rxjs';
-import { DataTableResource } from 'angular7-data-table';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-manage-course',
   templateUrl: './manage-course.component.html',
   styleUrls: ['./manage-course.component.css']
 })
-export class ManageCourseComponent implements OnInit {
-  courses:AddCourse[];
+export class ManageCourseComponent implements OnInit,OnDestroy {
+  courses:AddCourse[];  
   subscription:Subscription;
-  tableResource:DataTableResource<AddCourse>;
-  items:AddCourse[]=[];
-  itemCount:number;
+  filteredCourses:any[];
   
-  constructor(private courseService : AddCourseService,private router : Router) {
+  constructor(private courseService : AddCourseService) {
      this.subscription=this.courseService.getCourses().subscribe(courses=>{
-       this.courses=courses;
+       this.filteredCourses=this.courses=courses;
        console.log("Course",courses);
      })
    }
@@ -28,5 +24,12 @@ export class ManageCourseComponent implements OnInit {
   }
    ngOnInit() {
    }
-   
+   ngOnDestroy(){
+     this.subscription.unsubscribe();
+   }
+   filter(search:string){
+      this.filteredCourses=(search)?
+        this.courses.filter(c=>c.coursename.toLowerCase().includes(search.toLowerCase())):
+        this.courses;
+   }
 }
