@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class AdminCourseComponent implements OnInit {
   courses : CourseCategory[]=[
-    {name:'developemnt',value:'Development'},
+    {name:'development',value:'Development'},
     {name:'music',value:'Music'},
     {name:'photography',value:'Photography'},
     {name:'marketing',value:'Marketing'},

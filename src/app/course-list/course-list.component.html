@@ -2,17 +2,23 @@
   <mat-sidenav-container class="example-container">
     <mat-sidenav class="sidenav" mode="side" opened>
         <mat-list class="mat-list" role="list"><br><br><br><br>
-            <mat-list-item  class="list" role="listitem"><a mat-button-raised>All Categories</a></mat-list-item><br><br>      
-            <ng-container *ngFor="let c of category ">
+            <mat-list-item  class="list" role="listitem" [class.active]="!category" routerLink="/course-list">
+                All Categories
+            </mat-list-item><br><br>      
+            <div *ngFor="let c of category"
+              routerLink="/course-list"
+              [queryParams]="{ category: c.id }"
+              [class.active]="category===c.id"
+            >
                 <mat-list-item  class="list" role="listitem">
                     <a mat-button-raised>{{ c.name }}</a>
                 </mat-list-item><br><br>
-            </ng-container>
+            </div>
         </mat-list>
     </mat-sidenav>
     <mat-sidenav-content>
         <mat-grid-list cols="3" rowHeight="3:4">
-            <mat-grid-tile *ngFor="let c of courses">
+            <mat-grid-tile *ngFor="let c of filteredCourses">
                 <div class="col">
                     <mat-card class="example-card" style="width: 12rem;height: fit-content;"> 
                         <mat-card-header>                         
