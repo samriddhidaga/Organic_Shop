@@ -55,6 +55,7 @@ import { CdkColumnDef } from '@angular/cdk/table';
       { path : 'course-form', component : CourseFormComponent,canActivate:[AuthGuradService]},
       { path : 'course-list', component : CourseListComponent,canActivate:[AuthGuradService]},
       { path : 'admin/course', component : AdminCourseComponent,canActivate:[AuthGuradService]},
+      { path : 'admin/course/:id', component : AdminCourseComponent,canActivate:[AuthGuradService]},
       { path : 'admin/table', component : ManageCourseComponent,canActivate:[AuthGuradService]}
     ])
    // FlexLayoutModule

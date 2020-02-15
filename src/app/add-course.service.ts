@@ -32,4 +32,15 @@ export class AddCourseService {
   getCourses(){
     return this.addCourse;
   }
+  getCourseId(courseId){
+    return this.afs.collection('courses'+ courseId).valueChanges();
+  }
+  deleteCourse(course){
+    this.courseDoc=this.afs.doc(`courses/${course.id}`);
+    this.courseDoc.delete().then(()=>{
+      console.log("Delete Successfully");
+    }).catch((error)=>{
+      console.log("Error",error);
+    })
+  }
 }
