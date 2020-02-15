@@ -3,12 +3,11 @@
     <mat-sidenav class="sidenav" mode="side" opened>
         <mat-list class="mat-list" role="list"><br><br><br><br>
             <mat-list-item  class="list" role="listitem"><a mat-button-raised>All Categories</a></mat-list-item><br><br>      
-            <mat-list-item  class="list" role="listitem">Design</mat-list-item><br><br>         
-            <mat-list-item  class="list" role="listitem">Development</mat-list-item><br><br>               
-            <mat-list-item  class="list" role="listitem">Finance</mat-list-item><br><br>               
-            <mat-list-item  class="list" role="listitem">Marketing</mat-list-item><br><br>              
-            <mat-list-item  class="list" role="listitem">Music</mat-list-item><br><br>              
-            <mat-list-item  class="list" role="listitem">Photography</mat-list-item><br><br>
+            <ng-container *ngFor="let c of category ">
+                <mat-list-item  class="list" role="listitem">
+                    <a mat-button-raised>{{ c.name }}</a>
+                </mat-list-item><br><br>
+            </ng-container>
         </mat-list>
     </mat-sidenav>
     <mat-sidenav-content>
