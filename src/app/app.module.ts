@@ -25,6 +25,8 @@ import { CustomFormsModule } from 'ng2-validation';
 import { AddCourseService } from './add-course.service';
 import { DataTableModule } from 'ng-angular8-datatable'
 import { CdkColumnDef } from '@angular/cdk/table';
+import { AdminAuthGuardService } from './admin-auth-guard.service';
+import { AccessDeniedComponent } from './access-denied/access-denied.component';
 //import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
@@ -35,7 +37,8 @@ import { CdkColumnDef } from '@angular/cdk/table';
     CourseListComponent,
     AdminCourseComponent,
     NavBarComponent,
-    ManageCourseComponent 
+    ManageCourseComponent,
+    AccessDeniedComponent 
   ],
   imports: [
     BrowserModule,
@@ -54,9 +57,10 @@ import { CdkColumnDef } from '@angular/cdk/table';
       { path : 'login', component : LoginComponent},
       { path : 'course-form', component : CourseFormComponent,canActivate:[AuthGuradService]},
       { path : 'course-list', component : CourseListComponent,canActivate:[AuthGuradService]},
-      { path : 'admin/course', component : AdminCourseComponent,canActivate:[AuthGuradService]},
+      { path : 'admin/course', component : AdminCourseComponent,canActivate:[AuthGuradService,AdminAuthGuardService]},
       { path : 'admin/course/:id', component : AdminCourseComponent,canActivate:[AuthGuradService]},
-      { path : 'admin/table', component : ManageCourseComponent,canActivate:[AuthGuradService]}
+      { path : 'admin/table', component : ManageCourseComponent,canActivate:[AuthGuradService,AdminAuthGuardService]},
+      { path : 'access/denied', component : AccessDeniedComponent}
     ])
    // FlexLayoutModule
   ],
@@ -66,6 +70,7 @@ import { CdkColumnDef } from '@angular/cdk/table';
     CategoryService,
     CourseRegService,
     AddCourseService,
+    AdminAuthGuardService,
     CdkColumnDef
   ],
   bootstrap: [
