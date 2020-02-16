@@ -20,6 +20,8 @@ export class ManageCourseComponent implements OnInit,OnDestroy {
      })
    }
   delete(course){
+    if(!confirm('Are you sure you want to delete this course?')) return;
+
     this.courseService.deleteCourse(course);
   }
    ngOnInit() {

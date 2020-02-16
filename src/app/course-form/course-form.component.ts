@@ -11,11 +11,12 @@ import { Router } from '@angular/router';
 })
 export class CourseFormComponent implements OnInit {
    courses : CourseCategory[]=[
-     {name:'developemnt',value:'Development'},
+     {name:'development',value:'Development'},
      {name:'music',value:'Music'},
      {name:'photography',value:'Photography'},
      {name:'marketing',value:'Marketing'},
-     {name:'finance',value:'Finance & Accounting'}
+     {name:'finance',value:'Finance & Accounting'},
+     {name:'design',value:'Design'}
    ];
    id;
  // category$;
